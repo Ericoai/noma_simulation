@@ -7,7 +7,7 @@
 using namespace std;
 const int maxn=110;
 const int inf=0x7fffffff;
-int n,m,w[maxn][maxn];//n表示x边点的个数，y表示y边点的个数，w表示边权值
+int n = 2,m = 2,w[maxn][maxn] = {{0,0,0},{0,100,1000},{0,15,34}};//n表示x边点的个数，y表示y边点的个数，w表示边权值
 int lx[maxn],ly[maxn];//lx表示x边的标杆，ly表示y边的标杆
 int from[maxn],to[maxn];//from[i]=j表示y边的i由x边的j连接。to[i]=j表示x边的i可以到达y边的j
 bool s[maxn],t[maxn];//s表示x边的点集，t表示y边的点集
@@ -56,18 +56,28 @@ void km()//km算法
 }
 int main()
 {
-    scanf("%d %d",&n,&m);//输入
+
+    //scanf("%d %d",&n,&m);//输入
+	int n = 2;
+	int m = 2;
+	/*
     for(int i=1;i<=n;i++)
       for(int j=1;j<=m;j++)
       scanf("%d",&w[i][j]);
+	*/
+	int w[3][3] = {{0,0,0},{0,100,1000},{0,15,34}};
+
+
+
     km();
     int ans=0;
-    for(i=1;i<=n;i++)//计算答案
+    for(int i=1;i<=n;i++)//计算答案
 	{
 		ans+=w[i][to[i]];
 		printf("%d\n",w[i][to[i]]);
 
 	}
-    printf("%d",ans);//输出
+    printf("%d\n",ans);//输出
     return 0;
+}
 }
